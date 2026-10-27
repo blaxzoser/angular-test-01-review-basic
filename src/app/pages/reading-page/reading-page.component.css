@@ -1,0 +1,180 @@
+/* Reading page - warm "library" theme, independent of the global Star Wars theme */
+
+:host {
+  --bk-paper: #faf6ef;
+  --bk-surface: #ffffff;
+  --bk-ink: #2b2a33;
+  --bk-muted: #6b6878;
+  --bk-border: #e8e0d2;
+  --bk-teal: #1f6f78;
+  --bk-teal-dark: #17565d;
+  --bk-terracotta: #c8553d;
+  --bk-amber: #e9a23b;
+  --bk-sage: #4f9d69;
+  --bk-plum: #6c5b7b;
+
+  display: block;
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(233, 162, 59, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(31, 111, 120, 0.10), transparent 45%),
+    var(--bk-paper);
+  color: var(--bk-ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.reading-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+}
+
+/* Header */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bk-terracotta);
+  margin-bottom: 0.25rem;
+}
+
+h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--bk-ink);
+  text-shadow: none;
+  letter-spacing: normal;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--bk-teal-dark);
+  text-shadow: none;
+  letter-spacing: normal;
+  margin: 0 0 1rem;
+}
+
+.subtitle {
+  color: var(--bk-muted);
+  margin: 0;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  background: var(--bk-surface);
+  border: 1px solid var(--bk-border);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(43, 42, 51, 0.05);
+}
+
+.stat-total   { --accent: var(--bk-plum); }
+.stat-to-read { --accent: var(--bk-amber); }
+.stat-reading { --accent: var(--bk-teal); }
+.stat-read    { --accent: var(--bk-sage); }
+
+.stat-value {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--bk-muted);
+}
+
+/* Panels */
+.panel {
+  background: var(--bk-surface);
+  border: 1px solid var(--bk-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(43, 42, 51, 0.06);
+}
+
+/* Search */
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.field {
+  background: var(--bk-paper);
+  border: 1px solid var(--bk-border);
+  border-radius: 10px;
+  color: var(--bk-ink);
+  padding: 0.6rem 0.85rem;
+  font: inherit;
+  min-width: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--bk-teal);
+  box-shadow: 0 0 0 3px rgba(31, 111, 120, 0.18);
+}
+
+.field-grow {
+  flex: 1 1 200px;
+}
+
+.btn-primary-book {
+  background: var(--bk-teal);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary-book:hover {
+  background: var(--bk-teal-dark);
+}
+
+.btn-primary-book:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-row > * {
+    flex: 1 1 100%;
+  }
+}

@@ -1,0 +1,142 @@
+:host {
+  display: block;
+  color: #2b2a33;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6878;
+  padding: 0 1rem 0.25rem;
+}
+
+tbody tr {
+  --tone: #6b6878;
+  background: #faf6ef;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+tbody tr[data-status="to-read"] { --tone: #c27c12; }
+tbody tr[data-status="reading"] { --tone: #1f6f78; }
+tbody tr[data-status="read"]    { --tone: #3d8556; }
+
+tbody tr:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(43, 42, 51, 0.08);
+}
+
+td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+}
+
+/* Rounded row "cards" with a colored spine on the left */
+td:first-child {
+  border-left: 5px solid var(--tone);
+  border-radius: 10px 0 0 10px;
+}
+
+td:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.author {
+  color: #6b6878;
+  font-style: italic;
+}
+
+.status-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.status-option {
+  --tone: #6b6878;
+  position: relative;
+  border: 1px solid #e8e0d2;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  color: #6b6878;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.status-option[data-status="to-read"] { --tone: #c27c12; }
+.status-option[data-status="reading"] { --tone: #1f6f78; }
+.status-option[data-status="read"]    { --tone: #3d8556; }
+
+.status-option:hover {
+  border-color: var(--tone);
+  color: var(--tone);
+}
+
+.status-option.active {
+  background: var(--tone);
+  border-color: var(--tone);
+  color: #fff;
+}
+
+.status-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.status-option:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(31, 111, 120, 0.25);
+}
+
+.actions {
+  text-align: right;
+}
+
+.btn-remove {
+  background: transparent;
+  border: 1px solid #e4b5aa;
+  color: #c8553d;
+  border-radius: 8px;
+  padding: 0.35rem 0.85rem;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-remove:hover {
+  background: #c8553d;
+  border-color: #c8553d;
+  color: #fff;
+}
+
+.empty {
+  text-align: center;
+  color: #6b6878;
+  font-style: italic;
+  border-left: none !important;
+  border-radius: 10px !important;
+  padding: 2rem;
+}

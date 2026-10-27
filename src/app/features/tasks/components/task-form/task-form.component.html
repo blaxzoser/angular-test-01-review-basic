@@ -1,0 +1,15 @@
+
+<form (ngSubmit)="submit()">
+<input type="text" name="title" [(ngModel)]="selectedTitle"  placeholder="Task title" />
+
+@for (p of priorities; track p) {
+  <label>
+    <input type="radio" name="priority" [value]="p" [(ngModel)]="selectedPriority" />
+    {{ p }}
+  </label>
+}
+
+<button type="submit" [disabled]="!selectedTitle.trim()">
+      Add
+</button>
+</form>

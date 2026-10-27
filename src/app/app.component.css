@@ -1,0 +1,15 @@
+/* Star Wars Theme - App Component Styles */
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--sw-dark) 0%, var(--sw-space) 50%, var(--sw-dark) 100%);
+  background-attachment: fixed;
+}
+
+/* Ensure proper spacing */
+app-home-page {
+  display: block;
+  min-height: 100vh;
+}
+

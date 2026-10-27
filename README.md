@@ -1,59 +1,70 @@
-# Test01ReviewBasic
+# Angular Interview Practice
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+Hands-on Angular 19 exercises for preparing **HackerRank-style coding interviews**.
+Each exercise is a small, self-contained feature (route + parent page + child components)
+built under a time limit, then reviewed, scored and fixed. The write-ups and a cheat sheet of
+common mistakes live in [`docs/`](docs).
 
-## Development server
+![Angular](https://img.shields.io/badge/Angular-19.2-dd0031?logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?logo=typescript)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952b3?logo=bootstrap)
 
-To start a local development server, run:
+## Exercises
+
+| # | Feature | Route | What it practises | Write-up |
+|---|---|---|---|---|
+| 1 | **Film Search** | `/` | `@Input`/`@Output`, `ngModel`, case-insensitive filtering, empty state | [exercise-1](docs/exercise-1-film-search.md) |
+| 2 | **Task Board** | `/tasks` | form → parent events, immutable add/toggle/remove, computed counter, badges | [exercise-2](docs/exercise-2-task-board.md) |
+| 3 | **Reading List** | `/reading` | service + `Observable`, typed `Omit<>` events, row editing with `<select>`, search + status filter, counters | [exercise-3](docs/exercise-3-reading-list.md) |
+
+📘 **[Cheat sheet: common mistakes, Angular errors and basic snippets](docs/cheat-sheet-common-mistakes.md)**
+
+## Concepts covered
+- NgModule-based components (`standalone: false`) and routing
+- Parent/child communication with `@Input()` and `@Output()` / `EventEmitter`
+- Template-driven forms: `FormsModule`, `[(ngModel)]`, `(ngSubmit)`, `(ngModelChange)`
+- New control flow: `@for` with `track`, `@if`, `@empty`
+- Immutable state updates (`map`, `filter`, spread)
+- Services, dependency injection, `HttpClient` and RxJS (`of`, `map`, `tap`)
+- TypeScript utility types (`Omit`, union types) and strict templates
+
+## Project structure
+```
+src/app/
+├── models/                 # Film, Task, Book interfaces
+├── pages/                  # route-level parent components
+│   ├── home-page/          # Exercise 1
+│   └── reading-page/       # Exercise 3
+├── layout/tasks-page/      # Exercise 2
+└── features/
+    ├── home/               # search-box, films-results, film service
+    ├── tasks/              # task-form, task-list
+    └── reading/            # book-form, book-list, book service
+docs/                       # exercise write-ups + cheat sheet
+```
+
+## Getting started
+Requirements: Node.js 18.19+ (or 20+) and the Angular CLI 19.
 
 ```bash
+git clone <this-repo-url>
+cd test-01-review-basic
+npm install
 ng serve
 ```
+Open `http://localhost:4200/`, then `/tasks` and `/reading`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+| Command | Description |
+|---|---|
+| `ng serve` | Dev server with live reload |
+| `ng build` | Production build into `dist/` |
+| `ng test` | Unit tests (Karma + Jasmine) |
 
-## Code scaffolding
+## How the practice works
+1. Get a requirements table (HackerRank-style, with points and test ids).
+2. Build it against a timer, no styling until every requirement passes.
+3. Review: score each requirement, list concrete bugs, fix, re-score.
+4. Add new recurring mistakes to the cheat sheet.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+Personal study project — free to use for learning.

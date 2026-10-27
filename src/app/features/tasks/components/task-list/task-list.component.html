@@ -1,0 +1,22 @@
+<ul class="list-group">
+  @for(task of tasks;track task.id ){
+  <li class="list-group-item">
+     <span [class.text-decoration-line-through]="task.done">{{ task.title }}</span>
+     <span class="badge rounded-pill"
+            [class.text-bg-secondary]="task.priority === 'low'"
+            [class.text-bg-warning]="task.priority === 'medium'"
+            [class.text-bg-danger]="task.priority === 'high'"
+
+            >
+        {{ task.priority }}
+      </span>
+      <input type="checkbox" [checked]="task.done" (change) = "onToggle(task.id)"  />
+      <button class="btn btn-sm btn-outline-danger"  (click) = "onRemove(task.id)">Remove </button>
+  </li>
+
+
+  } @empty{
+    <li>No task</li>
+  }
+
+  </ul>

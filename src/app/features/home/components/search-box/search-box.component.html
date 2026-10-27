@@ -1,0 +1,55 @@
+<div class="card mb-4">
+  <div class="card-header text-center">
+    <h3 class="mb-0">Search Films</h3>
+  </div>
+  <div class="card-body">
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Enter Film Title..."
+          [(ngModel)]="filmTitle"
+          (keyup.enter)="findFilmByTitle()"
+        />
+      </div>
+      <div class="col-12 col-md-4">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Enter term ..."
+          [(ngModel)]="term"
+          (keyup.enter)="searchByTerm()"
+        />
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="d-grid gap-2 d-md-flex">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg flex-fill"
+            (click)="findFilmByTitle()"
+          >
+            Search
+          </button>
+           <button
+            type="button"
+            class="btn btn-primary btn-lg flex-fill"
+            (click)="searchByTerm()"
+          >
+            Search by Term
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg flex-fill"
+            (click)="clean()"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

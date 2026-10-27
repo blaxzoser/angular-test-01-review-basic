@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header text-center">
+    <h3 class="mb-0">Film Results</h3>
+  </div>
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th scope="col" class="text-nowrap">Title</th>
+            <th scope="col" class="d-none d-md-table-cell">Description</th>
+            <th scope="col" class="text-nowrap d-none d-lg-table-cell">Producer</th>
+            <th scope="col" class="text-nowrap d-none d-xl-table-cell">Created</th>
+            <th scope="col" class="text-nowrap d-none d-md-table-cell">Director</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="films.length === 0">
+            <td colspan="5" class="text-center py-5">
+              <p class="text-muted mb-0">No films found. Try searching for a film title.</p>
+            </td>
+          </tr>
+          <tr *ngFor="let film of films">
+            <td class="fw-bold">{{ film.properties?.title }}</td>
+            <td class="d-none d-md-table-cell">{{ film.description || 'N/A' }}</td>
+            <td class="d-none d-lg-table-cell">{{ film.properties?.producer || 'N/A' }}</td>
+            <td class="d-none d-xl-table-cell text-nowrap">{{ film.properties?.created || 'N/A' }}</td>
+            <td class="d-none d-md-table-cell">{{ film.properties?.director || 'N/A' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer text-muted text-center" *ngIf="films.length > 0">
+    <small>Showing {{ films.length }} film(s)</small>
+  </div>
+</div>

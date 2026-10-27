@@ -1,0 +1,17 @@
+<form class="book-form" (ngSubmit)="add()" >
+  <div class="inputs">
+    <input  data-testid="title-input" id="title-input" class="field" name="title-input" [(ngModel)]="titleInput" type="text" placeholder="Title" >
+    <input  data-testid="author-input"  id="author-input" class="field" name="author-input"  [(ngModel)]="authorInput" type="text" placeholder="Author" >
+  </div>
+  <fieldset>
+    <legend>Status</legend>
+    <div class="status-group">
+    <select data-testid="status-select"  id="status-select" name="status-select" class="status-option"  [(ngModel)]="status" >
+        @for(s of statuses;track s.value) {
+          <option  [value]="s.value"> {{s.label}}</option>
+        }
+    </select>
+    </div>
+  </fieldset>
+  <button data-testid="add-btn" class="btn-add" [disabled]="titleInput.trim() === '' || authorInput.trim()  === '' " >Add book</button>
+</form>

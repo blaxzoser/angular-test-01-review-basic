@@ -1,0 +1,58 @@
+<div class="reading-page">
+  <header class="page-header">
+    <span class="eyebrow">My Library</span>
+    <h1>Reading List</h1>
+    <p class="subtitle">Track what you want to read, what you're reading, and what you've finished.</p>
+  </header>
+
+  <section class="stats">
+    <div class="stat stat-total" id="count-total">
+      <span class="stat-value">{{ filterBooks.length }}</span>
+      <span class="stat-label">Total books</span>
+    </div>
+    <div class="stat stat-to-read" id="count-to-read">
+      <span class="stat-value">{{ countByStatus('to-read') }}</span>
+      <span class="stat-label">To read</span>
+    </div>
+    <div class="stat stat-reading" id="count-reading">
+      <span class="stat-value">{{ countByStatus('reading') }}</span>
+      <span class="stat-label">Reading</span>
+    </div>
+    <div class="stat stat-read" id="count-read">
+      <span class="stat-value">{{ countByStatus('read') }}</span>
+      <span class="stat-label">Finished</span>
+    </div>
+  </section>
+
+  <section class="panel search-panel">
+    <h2>Find a book</h2>
+    <div class="search-row">
+      <select class="field" [(ngModel)]="selectedOption" aria-label="Search by">
+        <option value="title">Title</option>
+        <option value="author">Author</option>
+      </select>
+      <input class="field field-grow" type="text" id="search-input" [(ngModel)]="selectedText" placeholder="Search books..." >
+      <select class="field" id="filter-status" [(ngModel)]="selectedStatus" aria-label="Filter by status">
+        <option value="all">All</option>
+        <option value="to-read">To Read</option>
+        <option value="reading">Reading</option>
+        <option value="read">read</option>
+      </select>
+      <button class="btn-primary-book" (click)="search()">Search</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Add a book</h2>
+    <app-book-form  (addEvent)="add($event)" >
+    </app-book-form>
+  </section>
+
+  <section class="panel">
+    <h2>Your books</h2>
+    <app-book-list [books]="filterBooks"
+    (emitRemove)="remove($event)"
+    (emitUpdate)="updateOnlyStatus($event)"  >
+    </app-book-list>
+  </section>
+</div>

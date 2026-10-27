@@ -1,0 +1,44 @@
+/* Star Wars Theme - Search Box Styles */
+
+.card {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-control-lg:focus {
+  transform: scale(1.02);
+}
+
+.btn-lg {
+  min-width: 120px;
+}
+
+/* Responsive button adjustments */
+@media (max-width: 576px) {
+  .btn-lg {
+    min-width: 100%;
+  }
+  
+  .d-grid.gap-2.d-md-flex {
+    flex-direction: column;
+  }
+}
+
+/* Icon placeholders - Bootstrap Icons would need to be added separately */
+.bi {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+

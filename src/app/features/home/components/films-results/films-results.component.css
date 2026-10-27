@@ -1,0 +1,60 @@
+/* Star Wars Theme - Table Results Styles */
+
+.card {
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  cursor: pointer;
+}
+
+/* Mobile-specific table styling */
+@media (max-width: 767px) {
+  .table-responsive {
+    border: 1px solid var(--sw-yellow);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table {
+    min-width: 500px; /* Ensure table doesn't get too compressed */
+  }
+  
+  .table tbody td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  
+  .table tbody td.fw-bold {
+    max-width: 150px;
+  }
+}
+
+/* Empty state styling */
+.text-muted {
+  font-style: italic;
+  padding: 2rem !important;
+}
+
+.card-footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 232, 31, 0.2);
+}
+

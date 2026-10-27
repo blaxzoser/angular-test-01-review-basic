@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  color: #2b2a33;
+}
+
+.book-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.inputs {
+  display: flex;
+  flex: 1 1 320px;
+  gap: 0.75rem;
+}
+
+.field {
+  flex: 1 1 0;
+  min-width: 0;
+  background: #faf6ef;
+  border: 1px solid #e8e0d2;
+  border-radius: 10px;
+  color: #2b2a33;
+  padding: 0.6rem 0.85rem;
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field:focus {
+  outline: none;
+  border-color: #1f6f78;
+  box-shadow: 0 0 0 3px rgba(31, 111, 120, 0.18);
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6878;
+  margin-bottom: 0.35rem;
+  float: none;
+  width: auto;
+}
+
+.status-group {
+  display: flex;
+  gap: 0.4rem;
+}
+
+/* Status pills; the radio input stays in the DOM for forms/tests but is visually hidden */
+.status-option {
+  --tone: #6b6878;
+  position: relative;
+  border: 1px solid #e8e0d2;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  color: #6b6878;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.status-option[data-status="to-read"] { --tone: #c27c12; }
+.status-option[data-status="reading"] { --tone: #1f6f78; }
+.status-option[data-status="read"]    { --tone: #3d8556; }
+
+.status-option:hover {
+  border-color: var(--tone);
+  color: var(--tone);
+}
+
+.status-option.active {
+  background: var(--tone);
+  border-color: var(--tone);
+  color: #fff;
+}
+
+.status-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.status-option:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(31, 111, 120, 0.25);
+}
+
+.btn-add {
+  background: #c8553d;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add:hover:not(:disabled) {
+  background: #a9432e;
+}
+
+.btn-add:disabled {
+  background: #e3c7bf;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .inputs {
+    flex-direction: column;
+  }
+
+  .btn-add {
+    width: 100%;
+  }
+}

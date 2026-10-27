@@ -1,0 +1,19 @@
+<div class="container-fluid py-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10 col-xl-8">
+      <div class="text-center mb-4">
+        <h1 class="display-4 mb-3">STAR WARS</h1>
+        <h2 class="h4 mb-4">Film Database</h2>
+        <div class="mb-4">
+          <div class="d-inline-block" style="width: 3px; height: 60px; background: linear-gradient(to bottom, var(--sw-yellow), transparent); margin: 0 10px;"></div>
+          <span class="mx-3">A long time ago in a galaxy far, far away...</span>
+          <div class="d-inline-block" style="width: 3px; height: 60px; background: linear-gradient(to bottom, var(--sw-yellow), transparent); margin: 0 10px;"></div>
+        </div>
+      </div>
+      <app-search-box (search)="onSearch($event)" ></app-search-box>
+    </div>
+  </div>
+
+</div>
+
+  <app-films-results [films]="this.filterFilms"></app-films-results>

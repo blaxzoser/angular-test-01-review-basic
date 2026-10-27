@@ -1,0 +1,5 @@
+<h1>Test task page</h1>
+<app-task-form (add)="add($event)"></app-task-form>
+<app-task-list [tasks]="tasks" (toggle)="toggle($event)" (remove)="remove($event)" >
+</app-task-list>
+<h2>{{numberOfDone()}} of {{numberOfTotal()}} done</h2>

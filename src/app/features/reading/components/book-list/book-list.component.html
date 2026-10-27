@@ -1,0 +1,35 @@
+<div class="table-wrap">
+  <table class="book-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (book of books; track book.id) {
+      <tr  data-testid="book-item" [id]="'book-item-' + book.id" [attr.data-status]="book.status">
+        <td  data-testid="book-title" [id]="'book-title-' + book.id" class="title" >{{book.title}}</td>
+        <td   data-testid="book-author" [id]="'book-author-' + book.id" class="author">{{book.author}}</td>
+        <td   [id]="'book-status-' + book.id">
+          <div class="status-group">
+          <select  data-testid="book-status" class="status-option"  [ngModel]="book.status" (ngModelChange)="update(book, $event)">
+            @for(s of statuses;track s.value) {
+                  <option  [value]="s.value" > {{s.label}} </option>
+            }
+          </select>
+          </div>
+        </td>
+        <td class="actions"> <button data-testid="remove-btn" class="btn-remove" (click)="remove(book.id)">Remove</button> </td>
+      </tr>
+      }
+      @empty {
+        <tr>
+          <td data-testid="no-books" colspan="4" class="empty">No books found</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
